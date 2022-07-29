@@ -4794,6 +4794,10 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
+"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659118777/public/@types/travellog.compre-junto-component":
+  version "0.0.1"
+  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659118777/public/@types/travellog.compre-junto-component#729177b4348a3da8c800213f3a254c7834496d61"
+
 ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.4.4.tgz#97a523518688f93aafad01b0e80eb803eb2abd86"
@@ -4945,6 +4949,14 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+"vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.10.0/public/@types/vtex.product-context":
+  version "0.10.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.10.0/public/@types/vtex.product-context#c5e2a97b404004681ee12f4fff7e6b62157786cc"
+
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime":
+  version "8.132.4"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"
