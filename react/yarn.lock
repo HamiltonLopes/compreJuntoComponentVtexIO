@@ -4794,9 +4794,9 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659118777/public/@types/travellog.compre-junto-component":
+"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659207698/public/@types/travellog.compre-junto-component":
   version "0.0.1"
-  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659118777/public/@types/travellog.compre-junto-component#729177b4348a3da8c800213f3a254c7834496d61"
+  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659207698/public/@types/travellog.compre-junto-component#a9014b1c5b2434b0e84f41aa4e302b2eebab1842"
 
 ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
@@ -4957,6 +4957,10 @@ verror@1.10.0:
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime":
   version "8.132.4"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime#66bb41bd4d342e37c9d85172aad5f7eefebfb6dc"
+
+"vtex.search-graphql@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.50.0/public/@types/vtex.search-graphql":
+  version "0.50.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.50.0/public/@types/vtex.search-graphql#e29e418461f338165a1f4ddaf2ed0fd2e7246420"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"
