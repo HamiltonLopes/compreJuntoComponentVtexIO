@@ -15,33 +15,15 @@ function Suggestions() {
   })
 
   console.log(data)
-
-  const product = {
-    id: productContext.product.productId,
-    name: productContext.product.productName,
-    price: productContext.product.items[0].sellers[0].commertialOffer.Price,
-    image: productContext.product.items[0].images[0].imageUrl,
-    info: `Em até 3x R$${productContext.product.items[0].sellers[0].commertialOffer.Installments[2].Value}, ${productContext.product.items[0].sellers[0].commertialOffer.Installments[2].InterestRate}% de juros.`,
-    skus: productContext.product.items,
-  }
-
-  const teste = {
-    image: `https://blog.calcadonet.com.br/wp-content/uploads/2021/02/estilos-de-roupa-retro.jpg`,
-    name: `Calça boca de sino`,
-    price: `300`,
-    id: 1030,
-    info: `Em até 3x R$100,00, 0% de juros.`,
-    skus: [0],
-  }
   console.log(productContext)
 
   return (
     <div className={Styles.Wrapper}>
       <div className={Styles.Title}>Sugestao de Compra</div>
       <div className={Styles.Container}>
-        <Product {...product} />
+        <Product {...productContext} />
         +
-        <Product {...teste} />= something
+        <Product {...productContext} />= something
       </div>
     </div>
   )
