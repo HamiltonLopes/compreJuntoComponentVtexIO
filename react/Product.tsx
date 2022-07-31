@@ -55,25 +55,21 @@ function Product(product: propObject) {
 
   return (
     <div className={Styles.Wrapper}>
-      <img
-        src={activeSku.image}
-        alt="girl in a cool jeans"
-        width="200"
-        height="300"
-      />
+      <img className={Styles.image} src={activeSku.image} />
       <div>{product.product.productName}</div>
       <div>{`${activeSku.price}`}</div>
       <div>{`${activeSku.info}`}</div>
-      {product.product.items.map((sku: any, index: number) => (
-        <button
-          id={`button${index}`}
-          type="button"
-          key={index}
-          onClick={(e: any) => handleChangeSku(index, e)}
-        >
-          {sku.name}
-        </button>
-      ))}
+      {product.product.items.length > 1 &&
+        product.product.items.map((sku: any, index: number) => (
+          <button
+            id={`button${index}`}
+            type="button"
+            key={index}
+            onClick={(e: any) => handleChangeSku(index, e)}
+          >
+            {sku.name}
+          </button>
+        ))}
     </div>
   )
 }

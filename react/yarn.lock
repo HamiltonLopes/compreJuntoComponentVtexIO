@@ -4794,9 +4794,9 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659207698/public/@types/travellog.compre-junto-component":
+"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659238616/public/@types/travellog.compre-junto-component":
   version "0.0.1"
-  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659207698/public/@types/travellog.compre-junto-component#a9014b1c5b2434b0e84f41aa4e302b2eebab1842"
+  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659238616/public/@types/travellog.compre-junto-component#5555424bc6b921723bff754bdbf5967de89afc2d"
 
 ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
