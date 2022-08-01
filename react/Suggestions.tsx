@@ -46,6 +46,7 @@ const CSS_HANDLES = [
   'buyTogetherContainer',
   'buyTogetherTitleContainer',
   'buyTogetherTitle',
+  'totalMessage',
   'totalValue',
 ]
 
@@ -89,14 +90,14 @@ function Suggestions () {
         <div className={Styles.Container}>
           <Product {...productContext.product} />
           <div className="self-center ma5">
-            <IconPlusLines size={20} />
+            <IconPlusLines size={30} />
           </div>
           <Product {...data.productsByIdentifier[activeProductIndex]} />
           <div className="self-center ma5">
-            <IconEqual />
+            <IconEqual size={25} />
           </div>
           <div className="w-100 mh2 mh6-l w-20-l self-center">
-            <div className="mb5">
+            <div className={`mb5 ${handles.totalMessage}`}>
             <FormattedMessage {...messages.totalProducts} />
             </div>
             <div className={`mv5 ${handles.totalValue}`}>
