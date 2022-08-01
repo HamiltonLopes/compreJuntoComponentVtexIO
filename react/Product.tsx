@@ -1,6 +1,7 @@
-/* eslint-disable */
 import React, { useState } from 'react'
 import Styles from './Product.module.css'
+import { Button } from 'vtex.styleguide'
+import { useCssHandles } from 'vtex.css-handles'
 
 interface sku {
   productId: number
@@ -10,7 +11,20 @@ interface sku {
   info: string
 }
 
+const CSS_HANDLES = [
+  'productName',
+  'productPrice',
+  'productImage',
+  'productImageContainer',
+  'productInfo',
+  'productButtonUnavailable',
+  'productButtonAvailable',
+  'productButtonContainer'
+]
+
 function Product(product: any) {
+  const handles = useCssHandles(CSS_HANDLES)
+
   const createMask = (num: any) => {
     let value = 'R$ ' + num
     if (value.split('.')[1]) {
@@ -56,31 +70,35 @@ function Product(product: any) {
   }
 
   return (
-    <div className={Styles.Wrapper}>
-      <img className={Styles.image} src={activeSku.image} />
-      <div>{product.productName}</div>
-      <div>{`${activeSku.price}`}</div>
-      <div>{`${activeSku.info}`}</div>
+    <div className="w-100 w-20-l">
+      <div className={`${handles.productImageContainer}`}>
+      <img className={`${handles.productImage}`} src={activeSku.image} />
+      </div>
+      <div className={`${handles.productName}`}>{product.productName}</div>
+      <div className={`${handles.productPrice}`}>{`${activeSku.price}`}</div>
+      <div className={`${handles.productInfo}`}>{`${activeSku.info}`}</div>
+      <div className={`${handles.productButtonContainer}`}>
       {product.items.length > 1 &&
         product.items.map((sku: any, index: number) => (
-          <button
-            id={`button${index}`}
-            type="button"
-            key={index}
-            className={
-              sku.sellers[0].commertialOffer.AvailableQuantity > 0
-                ? Styles.available
-                : Styles.unavailable
-            }
-            onClick={
-              sku.sellers[0].commertialOffer.AvailableQuantity > 0
-                ? (e: any) => handleChangeSku(index, e)
-                : (e: any) => e.preventDefault()
-            }
+          <Button variation="primary" size="small"
+          id={`button${index}`}
+          type="button"
+          key={index}
+          className={ 
+            sku.sellers[0].commertialOffer.AvailableQuantity > 0
+            ? handles.productButtonAvailable
+            : handles.productButtonUnavailable
+          }
+          onClick={
+            sku.sellers[0].commertialOffer.AvailableQuantity > 0
+            ? (e: any) => handleChangeSku(index, e)
+            : (e: any) => e.preventDefault()
+          }
           >
             {sku.name}
-          </button>
+          </Button>
         ))}
+        </div>
     </div>
   )
 }
