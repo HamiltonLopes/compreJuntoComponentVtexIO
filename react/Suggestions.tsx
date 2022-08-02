@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Product from './Product'
 import Styles from './Suggestions.module.css'
 import { useProduct } from 'vtex.product-context'
@@ -12,7 +12,6 @@ import { IconPlusLines, ButtonWithIcon, Button } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
-
 
 const messages = defineMessages({
   title: {
@@ -37,11 +36,6 @@ const messages = defineMessages({
   },
 })
 
-// interface Props {
-//   title?: string
-//   BuyButton: React.ComponentType
-// }
-
 const CSS_HANDLES = [
   'buyTogetherContainer',
   'buyTogetherTitleContainer',
@@ -50,7 +44,7 @@ const CSS_HANDLES = [
   'totalValue',
 ]
 
-function Suggestions () {
+function Suggestions() {
   const handles = useCssHandles(CSS_HANDLES)
   const productContext: any = useProduct()
   const melhoresCombinacoes = [54, 23, 2]
@@ -59,6 +53,29 @@ function Suggestions () {
     variables: { field: 'id', values: melhoresCombinacoes },
   })
   const [activeProductIndex, setActiveProductIndex] = useState<any>(0)
+  const [firstItemPrice, setFirstItemPrice] = useState<any>(
+    productContext.product.items[0].sellers[0].commertialOffer.Price
+  )
+  const [secondItemPrice, setSecondItemPrice] = useState<any>(
+    data?.productsByIdentifier[activeProductIndex].items[0].sellers[0]
+      .commertialOffer.Price | 0
+  )
+
+  useEffect(() => {
+    console.log('passei!!')
+    setSecondItemPrice(
+      data?.productsByIdentifier[activeProductIndex].items[0].sellers[0]
+        .commertialOffer.Price
+    )
+  }, [data])
+
+  useEffect(() => {
+    setTotalPrice(firstItemPrice + secondItemPrice)
+  }, [firstItemPrice, secondItemPrice])
+
+  const [totalPrice, setTotalPrice] = useState<any>(
+    firstItemPrice + secondItemPrice
+  )
 
   console.log(data)
   console.log(productContext)
@@ -74,34 +91,39 @@ function Suggestions () {
       <div className={`flex-none tc ${handles.buyTogetherContainer}`}>
         <div className={`mv4 v-mid ${handles.buyTogetherTitleContainer}`}>
           <span className={`t-heading-3 ${handles.buyTogetherTitle}`}>
-              <FormattedMessage {...messages.title} />
+            <FormattedMessage {...messages.title} />
           </span>
         </div>
         <div className="tc nowrap mb3">
-        <ButtonWithIcon
+          <ButtonWithIcon
             icon={<IconRefresh />}
             variation="tertiary"
             onClick={handleChangeProduct}
           >
             <FormattedMessage {...messages.changeLabel} />
           </ButtonWithIcon>
-
         </div>
         <div className={Styles.Container}>
-          <Product {...productContext.product} />
+          <Product
+            product={productContext.product}
+            setPrice={setFirstItemPrice}
+          />
           <div className="self-center ma5">
             <IconPlusLines size={30} />
           </div>
-          <Product {...data.productsByIdentifier[activeProductIndex]} />
+          <Product
+            product={data.productsByIdentifier[activeProductIndex]}
+            setPrice={setSecondItemPrice}
+          />
           <div className="self-center ma5">
             <IconEqual size={25} />
           </div>
           <div className="w-100 mh2 mh6-l w-20-l self-center">
             <div className={`mb5 ${handles.totalMessage}`}>
-            <FormattedMessage {...messages.totalProducts} />
+              <FormattedMessage {...messages.totalProducts} />
             </div>
             <div className={`mv5 ${handles.totalValue}`}>
-            <FormattedCurrency value={300} />
+              <FormattedCurrency value={totalPrice} />
             </div>
             <Button>Adicionar ao Carrinho</Button>
           </div>

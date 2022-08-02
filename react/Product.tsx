@@ -1,7 +1,13 @@
+/* eslint-disable */
+
 import React, { useState } from 'react'
-import Styles from './Product.module.css'
 import { Button } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
+
+interface teste {
+  product: any
+  setPrice: (params: any) => any
+}
 
 interface sku {
   productId: number
@@ -19,10 +25,10 @@ const CSS_HANDLES = [
   'productInfo',
   'productButtonUnavailable',
   'productButtonAvailable',
-  'productButtonContainer'
+  'productButtonContainer',
 ]
 
-function Product(product: any) {
+function Product({ product, setPrice }: teste) {
   const handles = useCssHandles(CSS_HANDLES)
 
   const createMask = (num: any) => {
@@ -59,46 +65,47 @@ function Product(product: any) {
 
   if (activeSku.productId !== product.productId) {
     setActiveSku(skuMount(0, null))
+    setPrice(product.items[0].sellers[0].commertialOffer.Price)
   }
 
   const handleChangeSku = (index: number, e: any) => {
     e.preventDefault()
-    if (activeSku.btnId !== null)
-      document.getElementById(activeSku.btnId)!.classList.remove(Styles.active)
-    document.getElementById(e.currentTarget.id)!.classList.add(Styles.active)
     setActiveSku(skuMount(index, e.currentTarget.id))
+    setPrice(product.items[index].sellers[0].commertialOffer.Price)
   }
 
   return (
     <div className="w-100 w-20-l">
       <div className={`${handles.productImageContainer}`}>
-      <img className={`${handles.productImage}`} src={activeSku.image} />
+        <img className={`${handles.productImage}`} src={activeSku.image} />
       </div>
       <div className={`${handles.productName}`}>{product.productName}</div>
       <div className={`${handles.productPrice}`}>{`${activeSku.price}`}</div>
       <div className={`${handles.productInfo}`}>{`${activeSku.info}`}</div>
       <div className={`${handles.productButtonContainer}`}>
-      {product.items.length > 1 &&
-        product.items.map((sku: any, index: number) => (
-          <Button variation="primary" size="small"
-          id={`button${index}`}
-          type="button"
-          key={index}
-          className={ 
-            sku.sellers[0].commertialOffer.AvailableQuantity > 0
-            ? handles.productButtonAvailable
-            : handles.productButtonUnavailable
-          }
-          onClick={
-            sku.sellers[0].commertialOffer.AvailableQuantity > 0
-            ? (e: any) => handleChangeSku(index, e)
-            : (e: any) => e.preventDefault()
-          }
-          >
-            {sku.name}
-          </Button>
-        ))}
-        </div>
+        {product.items.length > 1 &&
+          product.items.map((sku: any, index: number) => (
+            <Button
+              variation="primary"
+              size="small"
+              id={`button${index}`}
+              type="button"
+              key={index}
+              onClick={
+                sku.sellers[0].commertialOffer.AvailableQuantity > 0
+                  ? (e: any) => handleChangeSku(index, e)
+                  : (e: any) => e.preventDefault()
+              }
+              disabled={
+                sku.sellers[0].commertialOffer.AvailableQuantity > 0
+                  ? false
+                  : true
+              }
+            >
+              {sku.name}
+            </Button>
+          ))}
+      </div>
     </div>
   )
 }

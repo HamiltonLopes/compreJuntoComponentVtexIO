@@ -4794,9 +4794,9 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-"travellog.compre-junto-component@https://mapedesenvolvimento--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659383511/public/@types/travellog.compre-junto-component":
+"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659320841/public/@types/travellog.compre-junto-component":
   version "0.0.1"
-  resolved "https://mapedesenvolvimento--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659383511/public/@types/travellog.compre-junto-component#7b15a4246e21e9f31d28efaf4ad95ca834198699"
+  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659320841/public/@types/travellog.compre-junto-component#dab39533ab8677f4bd27e0793fb8d133a846bd04"
 
 ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
@@ -4997,10 +4997,6 @@ verror@1.10.0:
 "vtex.product-summary@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary@2.80.1/public/@types/vtex.product-summary":
   version "2.80.1"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary@2.80.1/public/@types/vtex.product-summary#1210c99a487010c96c987033056e81437dcb289a"
-
-"vtex.recommendation-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.recommendation-context@0.1.0/public/@types/vtex.recommendation-context":
-  version "0.1.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.recommendation-context@0.1.0/public/@types/vtex.recommendation-context#d65b2d5c93db6a158d7b8f757d770a2df4eef46f"
 
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.132.4/public/@types/vtex.render-runtime":
   version "8.132.4"
