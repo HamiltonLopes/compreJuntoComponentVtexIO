@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react'
 import Product from './Product'
-import Styles from './Suggestions.module.css'
 import { useProduct } from 'vtex.product-context'
 import { useQuery } from 'react-apollo'
 import productsByIdentifier from './queries/productByIdentifier.graphql'
@@ -40,6 +39,7 @@ const CSS_HANDLES = [
   'buyTogetherContainer',
   'buyTogetherTitleContainer',
   'buyTogetherTitle',
+  'buyTogetherProductContainer',
   'totalMessage',
   'totalValue',
 ]
@@ -103,7 +103,7 @@ function Suggestions() {
             <FormattedMessage {...messages.changeLabel} />
           </ButtonWithIcon>
         </div>
-        <div className={Styles.Container}>
+        <div className={handles.buyTogetherProductContainer}>
           <Product
             product={productContext.product}
             setPrice={setFirstItemPrice}
