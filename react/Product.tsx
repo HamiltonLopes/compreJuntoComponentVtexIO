@@ -49,15 +49,13 @@ function Product({ product, setPrice }: teste) {
       productId: product.productId,
       price: createMask(product.items[index].sellers[0].commertialOffer.Price),
       image: product.items[index].images[0].imageUrl,
-      info: `Em até ${
-        product.items[index].sellers[0].commertialOffer.Installments[2]
+      info: `Em até ${product.items[index].sellers[0].commertialOffer.Installments[2]
           .NumberOfInstallments
-      }x ${createMask(
-        product.items[index].sellers[0].commertialOffer.Installments[2].Value
-      )}, ${
-        product.items[index].sellers[0].commertialOffer.Installments[2]
+        }x ${createMask(
+          product.items[index].sellers[0].commertialOffer.Installments[2].Value
+        )}, ${product.items[index].sellers[0].commertialOffer.Installments[2]
           .InterestRate
-      }% de juros.`,
+        }% de juros.`,
     }
   }
 
@@ -81,10 +79,10 @@ function Product({ product, setPrice }: teste) {
       </div>
       <div className={`${handles.productName}`}>{product.productName}</div>
       <div className={`${handles.productPrice}`}>{`${activeSku.price}`}</div>
-      <div className={`${handles.productInfo}`}>{`${activeSku.info}`}</div>
       <div className={`${handles.productButtonContainer}`}>
         {product.items.length > 1 &&
           product.items.map((sku: any, index: number) => (
+
             <Button
               variation="primary"
               size="small"
