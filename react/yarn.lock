@@ -4794,9 +4794,9 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-"travellog.compre-junto-component@https://mapedesenvolvimento--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659390024/public/@types/travellog.compre-junto-component":
+"travellog.compre-junto-component@https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659574410/public/@types/travellog.compre-junto-component":
   version "0.0.1"
-  resolved "https://mapedesenvolvimento--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659390024/public/@types/travellog.compre-junto-component#0124b0138b86e8d2e98bd36df4a000c005ae142e"
+  resolved "https://finaltheme--travellog.myvtex.com/_v/private/typings/linked/v1/travellog.compre-junto-component@0.0.1+build1659574410/public/@types/travellog.compre-junto-component#7e44031b2fef6e7a3f639e03ce1146bb3ef50fc5"
 
 ts-invariant@^0.4.0, ts-invariant@^0.4.4:
   version "0.4.4"
@@ -4962,9 +4962,9 @@ verror@1.10.0:
   version "0.2.6"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.6/public/@types/vtex.device-detector#3219242fa5c2f14023d33c3549c2d8de93c76d1f"
 
-"vtex.flex-layout@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.19.0/public/@types/vtex.flex-layout":
-  version "0.19.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.19.0/public/@types/vtex.flex-layout#042e0e1770bafdd157705abefffe0b2645a98f84"
+"vtex.flex-layout@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.20.0/public/@types/vtex.flex-layout":
+  version "0.20.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.20.0/public/@types/vtex.flex-layout#70a7b1b6dda96a6ae16b80e5c3e6b263e1f38631"
 
 "vtex.format-currency@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.4.1/public/@types/vtex.format-currency":
   version "0.4.1"
@@ -4973,6 +4973,10 @@ verror@1.10.0:
 "vtex.messages@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.messages@1.66.0/public/@types/vtex.messages":
   version "1.66.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.messages@1.66.0/public/@types/vtex.messages#1bbe1590243a46dcd8939de68af2c6496105215e"
+
+"vtex.order-items@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-items@0.13.21/public/@types/vtex.order-items":
+  version "0.13.21"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.order-items@0.13.21/public/@types/vtex.order-items#b88b2d267bc1b2877cae92e657b3934d4f01a960"
 
 "vtex.pixel-manager@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.pixel-manager@1.8.0/public/@types/vtex.pixel-manager":
   version "1.8.0"

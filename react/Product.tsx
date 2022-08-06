@@ -4,9 +4,10 @@ import React, { useState } from 'react'
 import { Button } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
 
-interface teste {
+interface PropsInterface {
   product: any
   setPrice: (params: any) => any
+  setProductInfo: (params: any) => any
 }
 
 interface sku {
@@ -28,7 +29,7 @@ const CSS_HANDLES = [
   'productButtonContainer',
 ]
 
-function Product({ product, setPrice }: teste) {
+function Product({ product, setPrice, setProductInfo }: PropsInterface) {
   const handles = useCssHandles(CSS_HANDLES)
 
   const createMask = (num: any) => {
@@ -49,13 +50,15 @@ function Product({ product, setPrice }: teste) {
       productId: product.productId,
       price: createMask(product.items[index].sellers[0].commertialOffer.Price),
       image: product.items[index].images[0].imageUrl,
-      info: `Em até ${product.items[index].sellers[0].commertialOffer.Installments[2]
+      info: `Em até ${
+        product.items[index].sellers[0].commertialOffer.Installments[2]
           .NumberOfInstallments
-        }x ${createMask(
-          product.items[index].sellers[0].commertialOffer.Installments[2].Value
-        )}, ${product.items[index].sellers[0].commertialOffer.Installments[2]
+      }x ${createMask(
+        product.items[index].sellers[0].commertialOffer.Installments[2].Value
+      )}, ${
+        product.items[index].sellers[0].commertialOffer.Installments[2]
           .InterestRate
-        }% de juros.`,
+      }% de juros.`,
     }
   }
 
@@ -70,6 +73,11 @@ function Product({ product, setPrice }: teste) {
     e.preventDefault()
     setActiveSku(skuMount(index, e.currentTarget.id))
     setPrice(product.items[index].sellers[0].commertialOffer.Price)
+    setProductInfo({
+      id: product.items[index].itemId,
+      seller: product.items[index].sellers[0].sellerId,
+      quantity: 1,
+    })
   }
 
   return (
@@ -82,7 +90,6 @@ function Product({ product, setPrice }: teste) {
       <div className={`${handles.productButtonContainer}`}>
         {product.items.length > 1 &&
           product.items.map((sku: any, index: number) => (
-
             <Button
               variation="primary"
               size="small"

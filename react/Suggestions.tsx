@@ -11,6 +11,7 @@ import { IconPlusLines, ButtonWithIcon, Button } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
+import { useOrderItems } from 'vtex.order-items/OrderItems'
 
 const messages = defineMessages({
   title: {
@@ -44,9 +45,16 @@ const CSS_HANDLES = [
   'totalValue',
 ]
 
+interface itemsInfo {
+  id: number
+  seller: number
+  quantity: number
+}
+
 function Suggestions() {
   const handles = useCssHandles(CSS_HANDLES)
   const productContext: any = useProduct()
+  const { addItem } = useOrderItems()
   const melhoresCombinacoes = [54, 23, 2]
 
   const { data } = useQuery(productsByIdentifier, {
@@ -60,14 +68,33 @@ function Suggestions() {
     data?.productsByIdentifier[activeProductIndex].items[0].sellers[0]
       .commertialOffer.Price | 0
   )
+  const [firstItemCartInfo, setFirstItemCartInfo] = useState<itemsInfo>({
+    id: productContext.product.items[0].itemId,
+    seller: productContext.product.items[0].sellers[0].sellerId,
+    quantity: 1,
+  })
+
+  const [secondItemCartInfo, setSecondItemCartInfo] = useState<itemsInfo>({
+    id: data?.productsByIdentifier[activeProductIndex].items[0].itemId,
+    seller:
+      data?.productsByIdentifier[activeProductIndex].items[0].sellers[0]
+        .sellerId,
+    quantity: 1,
+  })
 
   useEffect(() => {
-    console.log('passei!!')
     setSecondItemPrice(
       data?.productsByIdentifier[activeProductIndex].items[0].sellers[0]
         .commertialOffer.Price
     )
-  }, [data])
+    setSecondItemCartInfo({
+      id: data?.productsByIdentifier[activeProductIndex].items[0].itemId,
+      seller:
+        data?.productsByIdentifier[activeProductIndex].items[0].sellers[0]
+          .sellerId,
+      quantity: 1,
+    })
+  }, [data, activeProductIndex])
 
   useEffect(() => {
     setTotalPrice(firstItemPrice + secondItemPrice)
@@ -84,6 +111,10 @@ function Suggestions() {
       if (prev < melhoresCombinacoes.length - 1) return prev + 1
       else return 0
     })
+  }
+
+  const handleAddCart = () => {
+    addItem([firstItemCartInfo, secondItemCartInfo])
   }
 
   return (
@@ -107,6 +138,7 @@ function Suggestions() {
           <Product
             product={productContext.product}
             setPrice={setFirstItemPrice}
+            setProductInfo={setFirstItemCartInfo}
           />
           <div className="self-center ma5">
             <IconPlusLines size={30} />
@@ -114,6 +146,7 @@ function Suggestions() {
           <Product
             product={data.productsByIdentifier[activeProductIndex]}
             setPrice={setSecondItemPrice}
+            setProductInfo={setSecondItemCartInfo}
           />
           <div className="self-center ma5">
             <IconEqual size={25} />
@@ -125,7 +158,7 @@ function Suggestions() {
             <div className={`mv5 ${handles.totalValue}`}>
               <FormattedCurrency value={totalPrice} />
             </div>
-            <Button>Adicionar ao Carrinho</Button>
+            <Button onClick={handleAddCart}>Adicionar ao Carrinho</Button>
           </div>
         </div>
       </div>
