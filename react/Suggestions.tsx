@@ -12,6 +12,7 @@ import { useCssHandles } from 'vtex.css-handles'
 import { FormattedMessage, defineMessages } from 'react-intl'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useOrderItems } from 'vtex.order-items/OrderItems'
+import axios from 'axios'
 
 const messages = defineMessages({
   title: {
@@ -55,11 +56,34 @@ function Suggestions() {
   const handles = useCssHandles(CSS_HANDLES)
   const productContext: any = useProduct()
   const { addItem } = useOrderItems()
-  const melhoresCombinacoes = [54, 23, 2]
 
+  const [melhoresCombinacoes, setMelhoresCombinacoes] = useState<Array<Number>>(
+    []
+  )
+
+  useEffect((): any => async () => {
+    if (melhoresCombinacoes?.length === 0) {
+      const response: any = await axios.get(
+        `https://hccombinationsapi.tk/combinations-api/v1/combinations-by-id/${productContext.product.productId}`
+      )
+      console.log('response', response)
+      if ((await response?.data?.length) > 0) {
+        let newArray = []
+        for (let i = response.data.length - 1; i >= 0; i--) {
+          newArray.push(+response.data[i])
+        }
+        setMelhoresCombinacoes(newArray)
+      } else {
+        setMelhoresCombinacoes([54, 23, 2])
+      }
+    }
+  })
+
+  console.log('melhores comb = ', melhoresCombinacoes)
   const { data } = useQuery(productsByIdentifier, {
     variables: { field: 'id', values: melhoresCombinacoes },
   })
+
   const [activeProductIndex, setActiveProductIndex] = useState<any>(0)
   const [firstItemPrice, setFirstItemPrice] = useState<any>(
     productContext.product.items[0].sellers[0].commertialOffer.Price
