@@ -10,6 +10,10 @@ Projeto desenvolvido como desafio final no HiringCoders#3 Gama Academy VTEX.
 Este projeto é um componente em VtexIO que mostra possíveis combinações para o item da 
 página em que ele está sendo chamado.
 
+Componente na loja Vtex:
+
+```"travellog.compre-junto-component": "0.x"```
+
 ---
 
 ## 🛠 Tecnologias/Ferramentas
